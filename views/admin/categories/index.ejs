@@ -25,7 +25,8 @@
                     <th><%= category.title%></th>
                     <th><%= category.slug%></th>
                     <th>
-                        <a href="/admin/categories/<%= category.id%>" class="btn btn-warning">Editar</a>
+                        <a href="/admin/categories/edit/<%= category.id %>" class="btn btn-warning">Editar</a>
+
                         <!--vai enviar o id para o POST que faz o delete  -->
                         <form method="POST" action="/categories/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
                             <input type="hidden" name="id" value="<%= category.id%>">
