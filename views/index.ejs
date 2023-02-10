@@ -1,7 +1,31 @@
+
 <%- include('partials/header') -%>
+<%- include('partials/homenavbar') -%>
 
 <body>
-    <h1>olá mundo</h1>
+    <div class="container mt-2">
+        <div class="jumbotron form-control bg-light">
+            <h1 class="display-4">Bem vindo!</h1>
+            <p class="lead">Este blog é um projeto para fins de estudo.</p>
+            <hr class="my-4">
+            <p>Utilizando a linguagem Node.Js.</p>
+           
+        </div>
+
+        <hr>
+        <% articles.forEach(article =>{ %>
+            <div class="card">
+                <div class="card-header">
+                   <h2><%= article.title %></h2> 
+                </div>
+
+                <div class="card-body">
+                    <a class="btn btn-success" href="/<%= article.slug %>">Ler artigo</a>
+                </div>
+            </div>
+            <br>
+        <% }) %>
+    </div>
     
 </body>
 
