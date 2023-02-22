@@ -50,13 +50,13 @@ app.get('/:slug', (req, res) =>{
             slug: slug
         }
     }).then(article =>{
-        if(article != undefined){
-            Category.findAll().then(categories =>{
-                res.render('article', {articles: articles, categories: categories});
-            });
-
+        if(article != undefined){   
+            Category.findAll().then( categories =>{
+                res.render('article', {article: article, categories: categories})
+            })
+            
         }else{
-            res.redirect("/");
+            res.redirect('/')
         }
     }).catch(err =>{
         res.redirect('/')
