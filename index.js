@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const connection = require('./database/database');
+const session = require('express-session');
+
 
 //routers
 const categoriesController = require("./categories/categoriesControlers");
@@ -11,7 +13,13 @@ const Article = require ("./articles/Article");
 const Category = require("./categories/Category");
 const User = require('./user/User')
 
+//session
+//permite que eu crie uma sessão em qualquer parte do código
+app.use(session({
+    secret: "qualquercoisaaleatoria", cookie: {maxAge: 30000}
+}));
 
+//static
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
@@ -32,13 +40,26 @@ app.use("/", categoriesController);
 app.use("/", articleController);
 app.use('/', userController);
 
+//rota que salva os dados da sessão
+app.get('/session', (req, res)=>{
+    req.session.treinamento = "formação node.js "
+    res.send('sessão gerada')
+})
+
+//rota que lê os dados da sessão
+app.get('/leitura', (req,res) =>{
+    res.json({
+        treinamento: req.session.treinamento
+    })
+})
+
 
 app.get("/", (req, res) =>{
     Article.findAll({
         order: [
             ['id', 'DESC']
         ],
-        limit: 4
+        //limit: 4
     }).then(articles => {
 
         Category.findAll().then(categories =>{
