@@ -1,23 +1,32 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="/">
-        Blog
-    </a>
 
-    <ul class="navbar-nav mr-auto">
 
-        <li class="nav-item">
-            <a class="nav-link" href="/"><Home></a>
-        </li>
+<nav  class="navbar navbar-expand-lg navbar-dark  bg-primary">
 
-        <% categories.forEach(category =>{ %>
+   
+  
+    
+    <div class="row">
+
+        <a style="margin-left: 20px" class="navbar-brand " href="/">
+            Kláito, O Bom Da Guerra
+        </a>
+    
+        <ul class="navbar-nav mr-auto">
+    
             <li class="nav-item">
-                <a class="nav-link" href="/category/<%= category.slug%>"><%= category.title %></a>
+                <a class="nav-link" href="/"><Home></a>
             </li>
-            
-        <% }) %>
-       
-    </ul>
+    
+            <% categories.forEach(category =>{ %>
+                <li class="nav-item">
+                    <a class="nav-link" href="/category/<%= category.slug%>"><%= category.title %></a>
+                </li>
+                
+            <% }) %>
+           
+        </ul>
+    </div>
         
 
 </nav>

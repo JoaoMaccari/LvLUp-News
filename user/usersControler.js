@@ -68,6 +68,7 @@ router.post('/authenticate', (req, res)=>{
                     email: user.email
                 }
                 res.json(req.session.user)
+                
             }else{
                 res.redirect('/login')
             }

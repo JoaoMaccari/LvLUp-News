@@ -2,3 +2,11 @@
     border-style: hidden;
     padding: 3%;
 } 
+
+body{
+    background-color: bisque;
+}
+
+.cabecalho_corpo{
+    background-color: grey;
+}
