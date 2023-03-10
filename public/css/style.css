@@ -8,8 +8,26 @@
 body{
     font-family: 'Roboto', sans-serif;
     background-color: bisque;
+    background-image: url("../assets/dragon_background.jpg");
+   
 }
 
+/* nav bar */
+
+.barra{
+    background-color: rgba(0, 0, 0, 0.226);
+    border-radius: 10px;
+}
+
+/* tabelas  */
+
+
+
+/*  card artigo */
 .cabecalho_corpo{
-    background-color: grey;
+    
+}
+
+.card_artigo{
+    max-width: 80%;
 }

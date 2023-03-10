@@ -1,32 +1,34 @@
 
 
+<div class=" container mt-3 mb-3 ">
 
-<nav  class="navbar navbar-expand-lg navbar-dark  bg-primary">
+    <nav  class="navbar navbar-expand-lg navbar-dark barra ">
+    
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+        <a class="nav-link navbar-brand ml-auto px-4 py-2  " href="/">Home</a>
 
-   
-  
-    
-    <div class="row">
-
-        <a style="margin-left: 20px" class="navbar-brand " href="/">
-            Kláito, O Bom Da Guerra
-        </a>
-    
-        <ul class="navbar-nav mr-auto">
-    
-            <li class="nav-item">
-                <a class="nav-link" href="/"><Home></a>
-            </li>
-    
-            <% categories.forEach(category =>{ %>
-                <li class="nav-item">
-                    <a class="nav-link" href="/category/<%= category.slug%>"><%= category.title %></a>
-                </li>
-                
-            <% }) %>
-           
-        </ul>
-    </div>
+        <div class="collapse navbar-collapse  justify-content-end listaCategory "  id="collapsibleNavbar">
         
+            <ul class="navbar-nav mr-auto px-2 py-2   ">
+               
+                
+                <% categories.forEach(category =>{ %>
+                    <li class="nav-item  ">
+                        <a class="nav-link" href="/category/<%= category.slug%>"><%= category.title %></a>
+                    </li>
+                
+                <% }) %>
+        
+            </ul>
+          
+        </div>
+      
+    
+    </nav>
 
-</nav>
+</div>
+
