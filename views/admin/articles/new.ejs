@@ -1,5 +1,6 @@
 <%- include('../../partials/header') -%>
 <%- include('../../partials/navbar') -%>
+<link rel="stylesheet" href="/public/css/style.css">
 
 
 <div class="container">
@@ -10,7 +11,8 @@
                     </div>
     
         <div class="card-body">
-            <form method="POST" action="/article/save">
+            <form method="POST" enctype="multipart/form-data" action="/article/save">
+                <input class="form-control" type="file" name="file">
                 <input class="form-control" type="text" name="title" placeholder="Defina o título do Artigo"><br>
                 <textarea class="form-control" name="body" id="article" cols="30" rows="5" placeholder="Escreva o artigo aqui" ></textarea>
                 <label for="">Categoria</label>

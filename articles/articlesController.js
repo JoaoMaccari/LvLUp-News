@@ -3,7 +3,21 @@ const router = express.Router();
 const Category = require("../categories/Category")
 const Article = require("./Article")
 const slugify = require("slugify")
+
+const path = require("path")
+const multer = require('multer')
 const adminAuth = require('../middleware/adminAuth')
+
+
+const storage = multer.diskStorage({
+    destination: function(req, file, cb){
+        cb(null, "uploads/")
+    },
+    filename: function(req, file,cb){
+        cb(null, file.originalname + Date.now() + path.extname(file.originalname))
+    }
+})
+const upload = multer({storage})
 
 router.get("/admin/articles",  (req, res) =>{
     Article.findAll({
@@ -21,15 +35,17 @@ router.get("/admin/articles/new",(req, res) =>{
     
 });
 
-router.post("/article/save", (req,res ) => {
+router.post("/article/save", upload.single("file"), (req,res ) => {
     var title = req.body.title;
     var body = req.body.body;
     var category = req.body.category;
+    var file = req.file.file;
 
     Article.create({
         title:title,
         slug:slugify(title),
         body: body,
+        file:file,
         categoryId: category
     }).then(() =>{
         res.redirect("/admin/articles");

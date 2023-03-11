@@ -1,32 +1,32 @@
 <%- include('../../partials/header') -%>
 <%- include('../../partials/navbar') -%>
-<link rel="stylesheet" href="/public/css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 
 <div class="container">
     <hr>
-    <h2>Artigos</h2>
-    <a class="btn btn-success" href="/admin/articles/new">Criar novo artigo</a>
+    <h2 class="titulo">Artigos</h2>
+    <a class="btn  btn_criar" href="/admin/articles/new">Criar novo artigo</a>
     <hr>
 
-    <table class="table table-bordered">
+    <table class="table  tabela">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Títulos</th>
-                <th>Slug</th>
-                <th>Categoria</th>
-                <th>Ações</th>
+                <th class="center">Id</th>
+                <th class="center">Títulos</th>
+                <th class="center">Slug</th>
+                <th class="center">Categoria</th>
+                <th class="center">Ações</th>
             </tr>
         </thead>
 
         <tbody>
             <% articles.forEach(article =>{ %>
                 <tr>
-                    <td><%= article.id%></td>
-                    <td><%= article.title%></td>
-                    <td><%= article.slug%></td>
-                    <td><%= article.category.title%></td>
-                    <td> 
+                    <td class="center"><%= article.id%></td>
+                    <td class="center"><%= article.title%></td>
+                    <td class="center"><%= article.slug%></td>
+                    <td class="center"><%= article.category.title%></td>
+                    <td class="center"> 
 
                         <form method="POST" action="/articles/delete" style="display: inline;" onsubmit="confirmarDelecao(event, this)">
                             <input type="hidden" name="id" value="<%= article.id%>">

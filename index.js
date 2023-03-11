@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const connection = require('./database/database');
 const session = require('express-session');
+const multer = require('multer')
+
 
 
 //routers
@@ -20,9 +22,9 @@ app.use(session({
 }));
 
 //static
+app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
-app.use(express.static('public'));
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());

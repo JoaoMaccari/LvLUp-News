@@ -17,12 +17,15 @@
         <hr>
 
         <div class="container ">
-            <div class="row">
+            <div class="row justify-content-center">
 
                 <% articles.forEach(article =>{ %>
                     
                     
                     <div class="card col-3 m-2" >
+                        <div>
+                            <img class="card-img-top" src="<%= article.capa_artigo%>" alt="Card image cap">
+                        </div>
                         <div class="card-header">
                             <h2><%= article.title %></h2> 
                         </div>

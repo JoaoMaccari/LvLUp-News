@@ -5,17 +5,17 @@
 
 <div class="container">
     <hr>
-    <h2>Categorias</h2>
-    <a class="btn btn-success" href="/admin/categories/new">Criar nova categoria</a>
+    <h2 class="titulo">Categorias</h2>
+    <a class="btn  btn_criar" href="/admin/categories/new">Criar nova categoria</a>
     <hr>
 
-    <table class="table table-bordered table-secondary">
+    <table class="table  tabela">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Títulos</th>
-                <th>Slug</th>
-                <th>Ações</th>
+                <th class="center">Id</th>
+                <th class="center">Títulos</th>
+                <th class="center">Slug</th>
+                <th class="center">Ações</th>
             </tr>
         </thead>
 
@@ -23,10 +23,10 @@
             <!-- aqui o "categories" é um json criado no controlador de categorias -->
             <% categories.forEach(category =>{  %>
                 <tr>
-                    <th><%= category.id%></th>
-                    <th><%= category.title%></th>
-                    <th><%= category.slug%></th>
-                    <th>
+                    <th class="center"><%= category.id%></th>
+                    <th class="center"><%= category.title%></th>
+                    <th class="center"><%= category.slug%></th>
+                    <th class="center">
                         <a href="/admin/categories/edit/<%= category.id %>" class="btn btn-warning">Editar</a>
 
                         <!--vai enviar o id para o POST que faz o delete  -->
