@@ -14,6 +14,10 @@ const Article = connection.define('articles', {
     body:{
         type:Sequelize.TEXT,
         allowNull: false
+    },
+    capa_artigo:{
+        type:Sequelize.BLOB,
+        allowNull: true
     }
 })
 
@@ -22,5 +26,5 @@ const Article = connection.define('articles', {
 Category.hasMany(Article);
 Article.belongsTo(Category);
 
-
+//Article.sync({force:true})
 module.exports = Article;

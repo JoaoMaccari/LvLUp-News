@@ -9,7 +9,7 @@ const multer = require('multer')
 const adminAuth = require('../middleware/adminAuth')
 
 
-const storage = multer.diskStorage({
+const storage = multer.memoryStorage({
     destination: function(req, file, cb){
         cb(null, "uploads/")
     },
@@ -39,13 +39,15 @@ router.post("/article/save", upload.single("file"), (req,res ) => {
     var title = req.body.title;
     var body = req.body.body;
     var category = req.body.category;
-    var file = req.file.file;
+
+    var file = req.file.buffer.toString('base64')
+    console.log(file)
 
     Article.create({
         title:title,
         slug:slugify(title),
         body: body,
-        file:file,
+        capa_artigo:file,
         categoryId: category
     }).then(() =>{
         res.redirect("/admin/articles");
