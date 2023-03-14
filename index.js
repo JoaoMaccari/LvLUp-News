@@ -4,6 +4,8 @@ const connection = require('./database/database');
 const session = require('express-session');
 const multer = require('multer')
 
+const userAuth = require('./middleware/userAuth')
+
 
 
 //routers
@@ -65,7 +67,8 @@ app.get("/", (req, res) =>{
     }).then(articles => {
 
         Category.findAll().then(categories =>{
-            res.render('index', {articles: articles, categories: categories});
+
+            res.render('index', {articles: articles, categories: categories, latestArticle: articles[0]});
         });
 
     });
@@ -81,7 +84,7 @@ app.get('/:slug', (req, res) =>{
     }).then(article =>{
         if(article != undefined){   
             Category.findAll().then( categories =>{
-                res.render('article', {article: article, categories: categories})
+                res.render('article', {article: article, categories: categories, })
             })
             
         }else{
@@ -102,7 +105,7 @@ app.get('/category/:slug', (req, res) =>{
     }).then(category =>{
         if(category != undefined){
             Category.findAll().then(categories =>{
-                res.render('index', {articles: category.articles, categories: categories});
+                res.render('index', {articles: category.articles, categories: categories, });
             });
         }else{
             res.redirect('/')

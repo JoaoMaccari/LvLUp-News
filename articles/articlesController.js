@@ -6,6 +6,8 @@ const slugify = require("slugify")
 
 const path = require("path")
 const multer = require('multer')
+
+const userAuth = require('../middleware/userAuth')
 const adminAuth = require('../middleware/adminAuth')
 
 
@@ -19,7 +21,7 @@ const storage = multer.memoryStorage({
 })
 const upload = multer({storage})
 
-router.get("/admin/articles",  (req, res) =>{
+router.get("/admin/articles", (req, res) =>{
     Article.findAll({
         include: [{model: Category}]
     }).then(articles  =>{

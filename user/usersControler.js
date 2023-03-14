@@ -4,6 +4,10 @@ const router = express.Router();
 const User = require('./User');
 const bcrypt = require('bcryptjs');
 
+const userAuth = require('../middleware/userAuth')
+
+const jwt = require('jsonwebtoken');
+const jwtSecret = 'segredo'
 
 router.get('/admin/users', (req, res) =>{
    
@@ -63,18 +67,25 @@ router.post('/authenticate', (req, res)=>{
 
             //se a senha for correta é criada uma sessão para o usuario com seu id e email
             if(correct){
+                let token = jwt.sign({user: user}, jwtSecret,{expiresIn: "48h"})
+
                 req.session.user ={
                     id: user.id,
-                    email: user.email
+                    email: user.email,
+                    token: token
                 }
-                res.json(req.session.user)
+                //res.json(req.session.user)
                 
             }else{
-                res.redirect('/login')
+                res.status(401).json({msg: "senha incorreta"})
+                //res.json({err: "O E-mail enviado é invalido"})
+                //res.redirect('/login')
             }
 
         }else{
-            res.redirect('/')
+            res.status(404).json({msg: "usuario não encontrado"});
+            
+            //res.redirect('/login')
         }
     })
 });
