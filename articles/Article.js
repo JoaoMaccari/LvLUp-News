@@ -16,15 +16,16 @@ const Article = connection.define('articles', {
         allowNull: false
     },
     capa_artigo:{
-        type:Sequelize.BLOB,
-        allowNull: true
+        type:Sequelize.BLOB('long'),
+        allowNull: false
     }
+    
 })
 
 
 
 Category.hasMany(Article);
 Article.belongsTo(Category);
-
-//Article.sync({force:true})
+ 
+//Article.sync({force:true}) 
 module.exports = Article;

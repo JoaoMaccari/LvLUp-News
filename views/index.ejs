@@ -5,24 +5,20 @@
 <link rel="stylesheet" href="/css/style.css">
 
 <body>
+    
+    
+    <div class="container-fluid">
+        <% for(let i = 0; i < 1; i++){ %>
 
-    <div class="container_fluid">
-        <div class="hero_image">
             
-            <h2><%= latestArticle.title%></h2>
+            <a href="/<%= articles[0].slug %>"><img class="capa" src="data:image/png;base64,<%= articles[0].capa_artigo %>" alt="" srcset=""></a>
+            
+            
+        <% } %>
 
-            <a href="/<%= latestArticle.slug %>">
-
-                <img class="    card-img-top imagem_capa" src="data:image/png;base64,<%= latestArticle.capa_artigo%> " alt="Embedded Image">
-
-            </a>
-
-        </div>
     </div>
-
     <div class="container">
-
-
+        
         <hr>
 
         <div class="container ">

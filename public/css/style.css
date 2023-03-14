@@ -79,6 +79,11 @@ table th, td{
 }
 
 
+.capa{
+   
+    min-width: 100%;
+    max-height: 700px;
+}
 
 
 
@@ -97,3 +102,10 @@ table th, td{
 .card_artigo{
     max-width: 80%;
 }
+
+
+@media (min-width: 768px) {
+    .button-36 {
+      padding: 0 2.6rem;
+    }
+} 

@@ -8,7 +8,9 @@ const path = require("path")
 const multer = require('multer')
 
 const userAuth = require('../middleware/userAuth')
-const adminAuth = require('../middleware/adminAuth')
+const adminAuth = require('../middleware/adminAuth');
+
+
 
 
 const storage = multer.memoryStorage({
@@ -20,6 +22,7 @@ const storage = multer.memoryStorage({
     }
 })
 const upload = multer({storage})
+//const uploadMultiple = upload.fields([{name: "file"}, {name: "file2"}])
 
 router.get("/admin/articles", (req, res) =>{
     Article.findAll({
@@ -37,19 +40,22 @@ router.get("/admin/articles/new",(req, res) =>{
     
 });
 
-router.post("/article/save", upload.single("file"), (req,res ) => {
+router.post("/article/save", upload.single("file") ,(req,res ) => {
     var title = req.body.title;
     var body = req.body.body;
     var category = req.body.category;
 
     var file = req.file.buffer.toString('base64')
-    console.log(file)
+  
+    
+    
 
     Article.create({
         title:title,
         slug:slugify(title),
         body: body,
         capa_artigo:file,
+
         categoryId: category
     }).then(() =>{
         res.redirect("/admin/articles");

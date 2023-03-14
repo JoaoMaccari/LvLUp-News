@@ -12,7 +12,8 @@
     
         <div class="card-body">
             <form method="POST" enctype="multipart/form-data" action="/article/save">
-                <input class="form-control" type="file" name="file">
+                <input class="form-control" type="file" name="file" multiple="multiple">
+                
                 <input class="form-control" type="text" name="title" placeholder="Defina o título do Artigo"><br>
                 <textarea class="form-control" name="body" id="article" cols="30" rows="5" placeholder="Escreva o artigo aqui" ></textarea>
                 <label for="">Categoria</label>
