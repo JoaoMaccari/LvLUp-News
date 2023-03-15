@@ -68,7 +68,7 @@ app.get("/", (req, res) =>{
 
         Category.findAll().then(categories =>{
 
-            res.render('index', {articles: articles, categories: categories, latestArticle: articles[0]});
+            res.render('index', {articles: articles, categories: categories, latestArticle: articles[1]});
         });
 
     });

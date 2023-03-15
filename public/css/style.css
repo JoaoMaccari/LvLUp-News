@@ -80,14 +80,23 @@ table th, td{
 
 
 .capa{
-   
-    min-width: 100%;
-    max-height: 700px;
+   width: 100%;
+   height: 900px;
+    
 }
 
+.capa_index{
+    position: relative;
+}
 
-
-
+.capa_index p{
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    font-size: 40px;
+    color: black;
+    text-shadow: 0px 0px 5px black;
+}
 
 /* artigos index*/
 .div_cards_index{
@@ -104,8 +113,3 @@ table th, td{
 }
 
 
-@media (min-width: 768px) {
-    .button-36 {
-      padding: 0 2.6rem;
-    }
-} 

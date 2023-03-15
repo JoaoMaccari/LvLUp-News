@@ -7,6 +7,7 @@ const slugify = require("slugify")
 const path = require("path")
 const multer = require('multer')
 
+
 const userAuth = require('../middleware/userAuth')
 const adminAuth = require('../middleware/adminAuth');
 
@@ -21,7 +22,11 @@ const storage = multer.memoryStorage({
         cb(null, file.originalname + Date.now() + path.extname(file.originalname))
     }
 })
+
+
+
 const upload = multer({storage})
+
 //const uploadMultiple = upload.fields([{name: "file"}, {name: "file2"}])
 
 router.get("/admin/articles", (req, res) =>{
@@ -46,7 +51,7 @@ router.post("/article/save", upload.single("file") ,(req,res ) => {
     var category = req.body.category;
 
     var file = req.file.buffer.toString('base64')
-  
+    
     
     
 
