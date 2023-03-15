@@ -33,6 +33,12 @@
                             <button class="btn btn-danger">Deletar</button>
                         </form>
 
+                        <!-- fazer um link para editar -->
+                        <form method="POST" action="/admin/articles/edit/:id" style="display: inline;" onsubmit="confirmarEdicao(event, this)">
+                            <input type="hidden" name="id" value="<%= article.id%>">
+                            <button class="btn btn-primary">Editar</button>
+                        </form>
+
                     </td>
                 </tr>
                 
@@ -57,6 +63,19 @@
 
         }else{
             console.log("não quero deletar")
+        }
+    }
+
+
+    function confirmarEdicao(event, form){
+        event.preventDefault();
+        console.log("O formulario não foi enviado")
+        var decision = confirm("Você quer Editar este artigo?")
+        if(decision){
+            form.submit();
+
+        }else{
+            console.log("não quero editar")
         }
     }
 </script>

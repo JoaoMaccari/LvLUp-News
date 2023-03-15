@@ -1,23 +1,25 @@
-.jumbotron{
-    border-style: hidden;
-    padding: 3%;
-} 
-
 
 
 body{
     font-family: 'Roboto', sans-serif;
-    background-color: bisque;
-    background-image: url("../assets/dragon_background.jpg");
+    background-color: #e6e6e6
+    /* background-image: url("../assets/dragon_background.jpg"); */
    
 }
+
+
 
 /* nav bar */
 
 .barra{
     background-color: rgba(0, 0, 0, 0.274);
     border-radius: 10px;
+    color: black;
+    font-weight: 700;
 }
+
+
+
 
 /* tabelas  adimin */
 
@@ -73,6 +75,7 @@ table th, td{
 } */
 
 
+/*     pagina inicial index   */
 
 .center{
     text-align: center;
@@ -98,18 +101,27 @@ table th, td{
     text-shadow: 0px 0px 5px black;
 }
 
-/* artigos index*/
-.div_cards_index{
-    
+
+
+
+/*  card artigo leitura */
+
+.container_card{
+    position: relative;
 }
 
-/*  card artigo */
 .cabecalho_corpo{
     
 }
 
+.cabecalho_cartao{
+    text-align: center;
+}
+
 .card_artigo{
-    max-width: 80%;
+    top: 90%;
+    position: absolute;
+    max-width: 60%;
 }
 
 

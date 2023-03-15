@@ -4,24 +4,29 @@
 <link rel="stylesheet" href="/css/style.css">
 <body>
 
-  <div class="row justify-content-center  ">
+  <div class="container container_card">
 
-    <div>
-      <img class="  card-img-top imagem_capa" src="data:image/png;base64,<%= article.capa_artigo%> " alt="Embedded Image">
-    </div>
-
-    
-    <div class="card col card_artigo ">
-      <div class="card-header cabecalho_cartao ">
-          <h2><%= article.title %></h2> 
+    <div class="row justify-content-center  ">
+  
+      <div>
+        <img class="  card-img-top imagem_capa" src="data:image/png;base64,<%= article.capa_artigo%> " alt="Embedded Image">
       </div>
   
-      <div class="card-body cabecalho_corpo">
-        <%- article.body %>
-      </div>
-    </div>
+      
+      <div class="card  card_artigo ">
+  
+        <div class="card-header cabecalho_cartao ">
+            <h2><%= article.title %></h2> 
+        </div>
     
+        <div class="card-body cabecalho_corpo">
+          <%- article.body %>
+        </div>
+      </div>
+      
+    </div>
   </div>
+
     
     
 </body>
