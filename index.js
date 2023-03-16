@@ -2,10 +2,8 @@ const express = require("express");
 const app = express();
 const connection = require('./database/database');
 const session = require('express-session');
-const multer = require('multer')
-
-const userAuth = require('./middleware/userAuth')
-
+const flash = require('express-flash');
+const cookieParser = require('cookie-parser')
 
 
 //routers
@@ -17,10 +15,15 @@ const Article = require ("./articles/Article");
 const Category = require("./categories/Category");
 const User = require('./user/User')
 
+app.use(flash())
+app.use(cookieParser('......'))
 //session
 //permite que eu crie uma sessão em qualquer parte do código
 app.use(session({
-    secret: "qualquercoisaaleatoria", cookie: {maxAge: 30000}
+    secret: "qualquercoisaaleatoria", 
+    cookie: {maxAge: 30000},
+    resave: false,
+    saveUninitialized:true
 }));
 
 //static
@@ -28,8 +31,9 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ limit: '50mb', extended: false, parameterLimit: 50000 }));
 app.use(express.json());
+
 
 connection
     .authenticate()

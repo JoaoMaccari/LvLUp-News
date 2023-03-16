@@ -10,9 +10,12 @@
                     </div>
     
         <div class="card-body">
-            <form method="POST" action="/articles/update">
+            <form method="POST" enctype="multipart/form-data" action="/articles/update">
+
+                <input class="form-control" type="file" name="file" value="<%= article.capa_artigo%>"  multiple="multiple">
                 <input type="hidden" value="<%= article.id %>" name="id">
-                <input class="form-control" type="text" name="title" placeholder="Defina o título do Artigo"><br>
+                <input class="form-control" type="text" name="title" placeholder="<%= article.title %>"><br>
+                
                 <textarea class="form-control" name="body" id="article" cols="30" rows="5" placeholder="Escreva o artigo aqui" ><%- article.body %></textarea>
                 <label for="">Categoria</label>
                 <select name="category"  class="form-control">

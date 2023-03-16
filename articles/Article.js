@@ -12,7 +12,7 @@ const Article = connection.define('articles', {
         allowNull: false
     },
     body:{
-        type:Sequelize.TEXT,
+        type:Sequelize.TEXT('long'),
         allowNull: false
     },
     capa_artigo:{
@@ -27,5 +27,5 @@ const Article = connection.define('articles', {
 Category.hasMany(Article);
 Article.belongsTo(Category);
  
-//Article.sync({force:true}) 
+//Article.sync({force:true})  
 module.exports = Article;

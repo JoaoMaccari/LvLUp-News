@@ -7,22 +7,23 @@
 <body>
     
     
-    <div  class=" capa_index row justify-content-center" >
-        <% for(let i = 0; i < 1; i++){ %>
     
-            
-                <a href="/<%= articles[0].slug %>"><img class="capa" src="data:image/png;base64,<%= articles[0].capa_artigo %>" alt="" srcset=""></a>
-
-            
-            <p><%= articles[0].title%></p>
-            
-            
-        <% } %>
-    
-    </div>
-
     <div class="container">
         
+        <div  class=" capa_index row justify-content-center" >
+            <% for(let i = 0; i < 1; i++){ %>
+        
+                
+                    <a href="/<%= articles[0].slug %>"><img class="capa" src="data:image/png;base64,<%= articles[0].capa_artigo %>" alt="" srcset=""></a>
+    
+                
+                    <a href="/<%= articles[0].slug %>"><p><%= articles[0].title%></p></a>
+                
+                
+                
+            <% } %>
+            
+        </div>
         <hr>
 
         <div class="container ">

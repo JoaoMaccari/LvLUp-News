@@ -1,6 +1,6 @@
 <%- include('../../partials/header') -%>
 <%- include('../../partials/navbar') -%>
-<link rel="stylesheet" href="/public/css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 
 
 <div class="container">
@@ -12,17 +12,22 @@
     
         <div class="card-body">
             <form method="POST" enctype="multipart/form-data" action="/article/save">
-                <input class="form-control" type="file" name="file" multiple="multiple">
-                
-                <input class="form-control" type="text" name="title" placeholder="Defina o título do Artigo"><br>
-                <textarea class="form-control" name="body" id="article" cols="30" rows="5" placeholder="Escreva o artigo aqui" ></textarea>
-                <label for="">Categoria</label>
-                <select name="category"  class="form-control">
+                <input class="form-control" type="file" name="file" value="<%= arquivo%>" multiple="multiple">
+                <%= fileError %>
+                <input class="form-control" type="text" name="title" placeholder="Defina o título do Artigo" value="<%= titulo%>"><br>
+                <%= titleError %>
+                <textarea class="form-control caixa_texto" name="body" id="article" cols="30" rows="5" value="<%= corpo%> placeholder="Escreva o artigo aqui" ></textarea>
+                <p><%= bodyError%><br></p>
+                <label for="">Categoria</label><br>
+                <select name="category"  class="form-control" >
                     <% categories.forEach((category) =>{ %>
                         <option value="<%=category.id%>"><%= category.title %></option>
                     <% }) %>   
                 </select>
+                <%= categoryError %>
+                
                 <br>
+               
                 <button type="submit" class="btn btn-success">Cadastrar</button>
             </form>
         </div>
@@ -55,5 +60,7 @@
                     'emoticons',
                 ]
         
+        
     })
 </script>
+
