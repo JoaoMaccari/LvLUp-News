@@ -95,7 +95,7 @@ router.post('/admin/user/criar', (req, res) =>{
                     email: email,
                     password: hash
                 }).then(() =>{
-
+                    req.flash('Success', 'Usuário criado com sucesso')
                     res.redirect('/');
                 }).catch((err =>{
                     res.redirect('/')

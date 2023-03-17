@@ -65,7 +65,8 @@ app.get('/leitura', (req,res) =>{
 app.get("/", (req, res) =>{
 
 
-    
+    var message =  req.flash('Success')
+    message = (message == undefined || message.length == 0) ? undefined : message;
 
     Article.findAll({
         order: [
@@ -76,7 +77,7 @@ app.get("/", (req, res) =>{
 
         Category.findAll().then(categories =>{
 
-            res.render('index', {articles: articles, categories: categories, latestArticle: articles[1]});
+            res.render('index', {articles: articles, categories: categories, latestArticle: articles[1], message:message});
         });
 
     });

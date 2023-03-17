@@ -10,7 +10,10 @@
     
     
     <div class="container">
-
+        <% if (message) { %>
+            <div class="alert alert-danger"><h2><%= message %></h2></div>
+            
+        <% } %>
         <div  class=" capa_index row justify-content-center" >
             <% for(let i = 0; i < 1; i++){ %>
         
