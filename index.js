@@ -62,6 +62,7 @@ app.get('/leitura', (req,res) =>{
 })
 
 
+
 app.get("/", (req, res) =>{
 
 
