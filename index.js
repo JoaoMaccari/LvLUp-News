@@ -63,6 +63,10 @@ app.get('/leitura', (req,res) =>{
 
 
 app.get("/", (req, res) =>{
+
+
+    
+
     Article.findAll({
         order: [
             ['id', 'DESC']
