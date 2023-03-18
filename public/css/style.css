@@ -1,4 +1,10 @@
 
+@font-face {
+    font-family: 'Game' ;
+    src: url('../fonts/GAME_glm.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body{
     font-family: 'Nunito Sans', sans-serif;
@@ -11,11 +17,24 @@ body{
 
 /* nav bar */
 
+
+
 .barra{
     background-color: rgba(0, 0, 0, 0.274);
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.377);
     border-radius: 10px;
-    color: black;
     font-weight: 700;
+    padding: 10px;
+}
+
+.barra a{
+    color: white;
+}
+
+.title{
+    font-family: 'Game', Times, serif ;
+   text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.411);
+   font-weight: bold;
 }
 
 
@@ -77,14 +96,32 @@ table th, td{
 
 /*     pagina inicial index   */
 
+.ultimos_artigos{
+    margin-top: 50px;
+
+}
+
+.main{
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.425);
+    margin-bottom: 30px;
+    
+    border-bottom-left-radius :10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+
 .center{
     text-align: center;
 }
 
 
 .capa{
+    display: block;
     max-width:100%;
-    height:auto;
+    margin: auto;
     
     
 }
@@ -99,7 +136,7 @@ table th, td{
     left: 2%;
     font-size: 40px;
     color: white;
-    text-shadow: 0px 0px 5px black;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.459);
 }
 
 
@@ -122,7 +159,13 @@ table th, td{
 .card_artigo{
     top: 90%;
     position: absolute;
-    max-width: 60%;
+    max-width: 80%;
+    
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.459);
+}
+
+.card-body{
+    border-radius: 0px;
 }
 
 

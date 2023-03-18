@@ -9,7 +9,7 @@
 
     
     
-    <div class="container">
+    <div class="container-md">
         <% if (success) { %>
             <div class="alert alert-success"><h2><%= success %></h2></div>
             
@@ -24,7 +24,7 @@
     
                     <div>
                         
-                        <a href="/<%= articles[0].slug %>"><p><%= articles[0].title%></p></a>
+                        <a  href="/<%= articles[0].slug %>"><p ><%= articles[0].title%></p></a>
                     </div>
                 
                 
@@ -35,7 +35,9 @@
       
         <hr>
 
-        <div class="container ">
+
+        <h2 class="ultimos_artigos container ">Ultimos artigos</h2>
+        <div class="container main">
             
             <div class="row   ">
 
@@ -45,9 +47,10 @@
                         
                         <img class="  card-img-top imagem_capa" src="data:image/png;base64,<%= article.capa_artigo%> " alt="Embedded Image">
 
-                        <div class="card mb-5 shadown-sm " >
+                        
+                        <div class="card card-body  mb-5 shadown-sm " >
     
-                            <div class="card-body">
+                            <div class="card-body ">
 
                                 <div class="card-title">
                                     <h2><%= article.title %></h2> 
