@@ -1,7 +1,7 @@
 
 
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     background-color: #e6e6e6
     /* background-image: url("../assets/dragon_background.jpg"); */
    
@@ -95,10 +95,10 @@ table th, td{
 
 .capa_index p{
     position: absolute;
-    top: 70%;
-    left: 30%;
+    top: 85%;
+    left: 2%;
     font-size: 40px;
-    color: black;
+    color: white;
     text-shadow: 0px 0px 5px black;
 }
 

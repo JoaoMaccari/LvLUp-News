@@ -66,8 +66,8 @@ app.get('/leitura', (req,res) =>{
 app.get("/", (req, res) =>{
 
 
-    // var message =  req.flash('Success')
-    // message = (message == undefined || message.length == 0) ? undefined : message;
+    var success =  req.flash('success')
+    success = (success == undefined || success.length == 0) ? undefined : success;
 
     Article.findAll({
         order: [
@@ -78,7 +78,7 @@ app.get("/", (req, res) =>{
 
         Category.findAll().then(categories =>{
 
-            res.render('index', {articles: articles, categories: categories, latestArticle: articles[1]});
+            res.render('index', {articles: articles, categories: categories, latestArticle: articles[1], success:success});
         });
 
     });
@@ -106,6 +106,10 @@ app.get('/:slug', (req, res) =>{
 });
 
 app.get('/category/:slug', (req, res) =>{
+
+    var success =  req.flash('success')
+    success = (success == undefined || success.length == 0) ? undefined : success;
+
     var slug = req.params.slug;
     Category.findOne({
         where:{
@@ -115,7 +119,7 @@ app.get('/category/:slug', (req, res) =>{
     }).then(category =>{
         if(category != undefined){
             Category.findAll().then(categories =>{
-                res.render('index', {articles: category.articles, categories: categories, });
+                res.render('index', {articles: category.articles, categories: categories, success:success });
             });
         }else{
             res.redirect('/')
