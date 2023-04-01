@@ -20,7 +20,7 @@
             <% for(let i = 0; i < 1; i++){ %>
         
                 
-                    <a href="/<%= articles[0].slug %>"><img class="capa" src="data:image/png;base64,<%= articles[0].capa_artigo %>" alt="" srcset=""></a>
+                    <a  href="/<%= articles[0].slug %>"><img class="capa" src="data:image/png;base64,<%= articles[0].capa_artigo %>" alt="" srcset=""></a>
     
                     <div>
                         
@@ -39,25 +39,29 @@
         <h2 class="ultimos_artigos container ">Ultimos artigos</h2>
         <div class="container main">
             
-            <div class="row   ">
+            <div class="row  g-3 ">
 
                 <% articles.forEach(article =>{ %>
-                    
+                    <!-- <div class="card w-75">
+
+                    </div> -->
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         
-                        <img class="  card-img-top imagem_capa" src="data:image/png;base64,<%= article.capa_artigo%> " alt="Embedded Image">
+                        <img class="  card-img-top img-fit imagem_capa" src="data:image/png;base64,<%= article.capa_artigo%> " alt="Embedded Image">
 
                         
-                        <div class="card card-body  mb-5 shadown-sm " >
+                        <div class="card card_index  mb-5 shadown-sm " >
     
                             <div class="card-body ">
 
                                 <div class="card-title">
-                                    <h2><%= article.title %></h2> 
+                                    <h5> <%= article.title %></h5> 
                                 </div>
+                                <div class="text-end">
 
+                                </div>
                             
-                                <a class="btn btn-success float-end" href="/<%= article.slug %>">Ler artigo</a>
+                                <a class="btn btn_ler float-end" href="/<%= article.slug %>">Ler artigo</a>
                             </div>
                         </div>
                     </div>   
